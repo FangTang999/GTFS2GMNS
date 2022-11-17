@@ -70,7 +70,7 @@ GTFS2GMNS can handle the transit data from several agencies. Users need to confi
 **Step 3.4 Create transferring arcs**
 
 - add transferring links between physical nodes of different mode.
-- 
+
 **Step 3.5 Create service arcs**
 
 - add service links between each route stop pair of each trip
@@ -81,7 +81,7 @@ GTFS2GMNS can handle the transit data from several agencies. Users need to confi
 The output files include node.csv and link.csv.
 
 
-#### *4. Visualization*
+#### *5. Visualization*
 
 You can visualize generated networks using [NeXTA](https://github.com/xzhou99/NeXTA-GMNS) or [QGIS](https://qgis.org/).
 
