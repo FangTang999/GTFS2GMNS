@@ -19,9 +19,9 @@ On TransitFeed [homepage](https://transitfeeds.com/), users can browse and downl
  
 GTFS2GMNS can handle the transit data from several agencies. Users need to configure different sub-files in the same directory. Under the `test` folder, three subfolders `Cottonwood_Area_Transit`, `Flagstaff_MountainLine`, and `Sedona_RoadRunner` with their owm GTFS data is set up.
 
-#### *2. Convert GTFS Data into GMNS Format*
+#### *Convert GTFS Data into GMNS Format*
 
-#### *Read GTFS data*
+#### *2. Read GTFS data*
 
 **Step 2.1: Read routes.txt**
 
