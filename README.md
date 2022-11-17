@@ -7,7 +7,7 @@ Your comments will be valuable for code review and improvement. Please feel free
 
 ## Getting Started
 
-### *Download GTFS Data*
+#### *1. Download GTFS Data*
 
 On TransitFeed [homepage](https://transitfeeds.com/), users can browse and download official GTFS  feeds from around the world. Make sure that the following files are present, so that we can proceed.
 
@@ -19,26 +19,24 @@ On TransitFeed [homepage](https://transitfeeds.com/), users can browse and downl
  
 GTFS2GMNS can handle the transit data from several agencies. Users need to configure different sub-files in the same directory. Under the `test` folder, three subfolders `Cottonwood_Area_Transit`, `Flagstaff_MountainLine`, and `Sedona_RoadRunner` with their owm GTFS data is set up.
 
-### *Convert GTFS Data into GMNS Format*
+#### *2. Convert GTFS Data into GMNS Format*
 
-## Main Steps
+#### *Read GTFS data*
 
-### *Read GTFS data*
-
-**Step 1.1: Read routes.txt**
+**Step 2.1: Read routes.txt**
 
 - route_id, route_long_name, route_short_name, route_url, route_type
 
-**Step 1.2: Read stop.txt**
+**Step 2.2: Read stop.txt**
 
 - stop_id, stop_lat, stop_lon, direction, location_type, position, stop_code, stop_name, zone_id
 
-**Step 1.3: Read trips.txt**
+**Step 2.3: Read trips.txt**
 
 - trip_id, route_id, service_id, block_id, direction_id, shape_id, trip_type
 - and create the directed_route_id by combining route_id and direction_id
 
-**Step 1.4: Read stop_times.txt**
+**Step 2.4: Read stop_times.txt**
 
 - trip_id, stop_id, arrival_time, deaprture_time, stop_sequence
 
@@ -50,13 +48,13 @@ GTFS2GMNS can handle the transit data from several agencies. Users need to confi
 
 - return the arrival_time for every stop
 
-### *Building service network*
+#### *3. Building service network*
 
-**Step 2.1 Create physical nodes**
+**Step 3.1 Create physical nodes**
 
 - physical node is the original stop in standard GTFS
 
-**Step 2.2 Create directed route stop vertexes**
+**Step 3.2 Create directed route stop vertexes**
 
 - add route stop vertexes. the node_id of route stop nodes starts from 100001
 
@@ -65,21 +63,25 @@ GTFS2GMNS can handle the transit data from several agencies. Users need to confi
 - add entrance link from physical node to route stop node
 - add exit link from route stop node to physical node. As they both connect to the physical nodes, the in-station transfer process can be also implemented
 
-**Step 2.3 Create physical arcs**
+**Step 3.3 Create boarding and decoarding arcs**
 
-- add physical links between each physical node pair of each trip
+- add links between each physical node and corresponding route stop vertexes.
 
-**Step 2.4 Create service arcs**
+**Step 3.4 Create transferring arcs**
+
+- add transferring links between physical nodes of different mode.
+- 
+**Step 3.5 Create service arcs**
 
 - add service links between each route stop pair of each trip
 
 
-### *Output*
+#### *4. Output*
 
 The output files include node.csv and link.csv.
 
 
-## Visualization
+#### Visualization
 
 You can visualize generated networks using [NeXTA](https://github.com/xzhou99/NeXTA-GMNS) or [QGIS](https://qgis.org/).
 
