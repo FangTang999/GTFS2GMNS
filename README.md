@@ -81,7 +81,7 @@ GTFS2GMNS can handle the transit data from several agencies. Users need to confi
 The output files include node.csv and link.csv.
 
 
-#### Visualization
+#### *4. Visualization*
 
 You can visualize generated networks using [NeXTA](https://github.com/xzhou99/NeXTA-GMNS) or [QGIS](https://qgis.org/).
 
